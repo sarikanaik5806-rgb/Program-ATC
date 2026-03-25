@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100], pattern[100];
+
+    printf("Enter the main string: ");
+    scanf("%s", str);
+
+    printf("Enter the pattern to search: ");
+    scanf("%s", pattern);
+
+    if (strstr(str, pattern) != NULL) {
+        printf("Pattern found!\n");
+    } else {
+        printf("Pattern not found.\n");
+    }
+
+    return 0;
+}
