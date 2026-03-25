@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char str[100];
+    int i = 0, isFloat = 0, valid = 1;
+
+    printf("Enter a number: ");
+    scanf("%s", str);
+
+    // Check for sign (+ or -)
+    if (str[i] == '+' || str[i] == '-') {
+        i++;
+    }
+
+    for (; str[i] != '\0'; i++) {
+        if (str[i] == '.') {
+            if (isFloat) {
+                valid = 0; // More than one dot
+                break;
+            }
+            isFloat = 1;
+        }
+        else if (!isdigit(str[i])) {
+            valid = 0;
+            break;
+        }
+    }
+
+    if (valid) {
+        if (isFloat)
+            printf("Valid Floating Point Number\n");
+        else
+            printf("Valid Integer\n");
+    } else {
+        printf("Invalid Number\n");
+    }
+
+    return 0;
+}
