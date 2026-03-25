@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100], sub[100];
+    int i, j, len1, len2, found = 0;
+
+    printf("Enter main string: ");
+    scanf("%s", str);
+
+    printf("Enter substring: ");
+    scanf("%s", sub);
+
+    len1 = strlen(str);
+    len2 = strlen(sub);
+
+    // Check for substring
+    for (i = 0; i <= len1 - len2; i++) {
+        for (j = 0; j < len2; j++) {
+            if (str[i + j] != sub[j])
+                break;
+        }
+        if (j == len2) {
+            printf("Substring found at position: %d\n", i + 1);
+            found = 1;
+            break;
+        }
+    }
+
+    if (!found)
+        printf("Substring not found\n");
+
+    return 0;
+}
