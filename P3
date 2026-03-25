@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[200];
+    int lines = 0, words = 0, characters = 0;
+    int i, inWord = 0;
+
+    printf("Enter text:\n");
+    fgets(str, sizeof(str), stdin);
+
+    characters = strlen(str);
+
+    for (i = 0; str[i] != '\0'; i++) {
+        if (str[i] == '\n')
+            lines++;
+
+        if (str[i] == ' ' || str[i] == '\n' || str[i] == '\t') {
+            inWord = 0;
+        } else if (inWord == 0) {
+            inWord = 1;
+            words++;
+        }
+    }
+
+    printf("\nLines: %d\n", lines);
+    printf("Words: %d\n", words);
+    printf("Characters: %d\n", characters);
+
+    return 0;
+}
